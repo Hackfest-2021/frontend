@@ -1,13 +1,16 @@
 <template>
   <v-main>
-    <v-container class="container"> <alert-table></alert-table> </v-container>
+    <v-container class="container">
+      <!-- <alert-table></alert-table> -->
+      <router-view></router-view>
+    </v-container>
   </v-main>
 </template>
 <script>
-import AlertTable from './AlertTable.vue';
+// import AlertTable from './AlertTable.vue';
 export default {
   components: {
-    AlertTable,
+    // AlertTable,
   },
 };
 </script>

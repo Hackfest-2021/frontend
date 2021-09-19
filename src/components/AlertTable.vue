@@ -12,19 +12,20 @@ export default {
   data: () => ({
     headers: ['Type', 'Driver', 'Severity'],
     rows: [],
+    params: {},
   }),
 
   mounted() {
-    this.getAlertsData();
+    const { type, driver } = this.$route.query;
+    this.getAlertsData({ type, driver });
   },
 
   methods: {
-    async getAlertsData() {
-      const [error, data] = await fetchAlertData();
+    async getAlertsData(params) {
+      const [error, data] = await fetchAlertData(params);
       if (error) {
         console.error('Error Occured');
       }
-      console.log('response', data);
       this.rows = this.getRowData(data);
     },
 
